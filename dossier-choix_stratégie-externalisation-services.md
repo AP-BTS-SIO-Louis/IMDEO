@@ -1,6 +1,6 @@
 # Dossier de choix : Stratégie d'externalisation des services
 
-**Problèmatique 6 : Externaliser les services et le site vitrine**
+**Problématique 6 : Externaliser les services et le site vitrine**
 
 **Contexte : IMDEO**
 
@@ -17,10 +17,10 @@
 ## Sommaire
 
 1. Expression des besoins
-1. Pertinence de l'externalisation
-2. Cadre juridique et contractuel
-3. Analyse des types d'hébergement
-4. Préconisation technique (Solution proposée)
+2. Pertinence de l'externalisation
+3. Cadre juridique et contractuel
+4. Analyse des types d'hébergement
+5. Préconisation technique (Solution proposée)
 
 ---
 ## Expression des besoins
@@ -28,7 +28,7 @@
 Tableau présentant les besoins de IMDEO ainsi qu'une explication du but de la démarche.
 
 ---
-## Pertience pour l'externalisation de services
+## Pertinence pour l'externalisation de services
 
 Qu'est-ce que l'externalisation de services ?
 
