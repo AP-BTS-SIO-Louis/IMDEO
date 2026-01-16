@@ -1,3 +1,9 @@
+
+L'ex
+
+
+---
+
 **Dans quelle situations est-il pertinent d'externaliser certaines applications chez un hébergeur ?**
 
 - Quand l'entreprise n'a pas les moyens de géré une infrastructure physique
