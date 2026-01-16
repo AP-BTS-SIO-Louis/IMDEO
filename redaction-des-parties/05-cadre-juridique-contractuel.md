@@ -1,7 +1,16 @@
-**Quels éléments contractuels sont importans à prendre en compte ?**
+### 3. Cadre juridique et contractuel
 
-- Clause de réversion qui permet de récupérer son application ainsi que ses données en cas de rupture du contrat
-- La part d'OPEX qui va être reservé à la facturation de l'hébergement des applications chez un hébergeur.
-- Le traitement des données effectué par l'hébergeur (compatibilité RGPD)
-- L'hébergeur doit disposer d'un SLA (Service Level Agreement) de 99%
-- L'hébergeur doit avoir une solution de protection contre les DoS et DDos
+Le prestataire en charge de l'hébergement doit être en capacité de répondre aux besoins d'IMDEO définis dans le cahier des charges.
+
+| **Contrainte / Clause**               | **Objectif pour IMDEO**                                                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Engagement de Service (SLA[^2])**   | Garantir une disponibilité de 99% par an, assurant ainsi la continuité de service pour les clients.                                        |
+| **Clause de réversibilité[^3]**       | Permettre à l'entreprise de récupérer l'intégralité des applications et des données en cas de changement de prestataire ou de résiliation. |
+| **Conformité RGPD**                   | Garantir la confidentialité des données personnelles avec un accès strictement limité au personnel autorisé.                               |
+| **Sécurité (Authentification)**       | Imposer une authentification multifacteur (MFA[^4]) pour sécuriser l'accès aux interfaces d'administration.                                |
+| **Protection réseau (Anti-DDoS[^5])** | Assurer que le site reste accessible même en cas d'attaques par déni de service.                                                           |
+#### Lexique
+
+[^2]: **SLA** = **S**ervice **L**evel **A**greement : Détermine le niveau de service attendu entre un client et un prestataire.
+[^5]: **DDoS** = **D**istributed **D**enial-**o**f-**S**ervice : Attaque informatique qui inonde le service légitime de requête afin d'empêcher son fonctionnement.
+[^4]: **MFA** = **M**ulti-**F**actor **A**uthentication : Couche de protection supplémentaire pour l'authentification. Cela combine plusieurs méthode d'authentification comme un mot de passe et un code one time password via une application. 
