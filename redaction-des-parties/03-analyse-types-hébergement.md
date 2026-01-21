@@ -1,6 +1,4 @@
-____
-
-## 1) Quel type d'hébergement serait le plus pertinent ?
+## Quel type d'hébergement serait le plus pertinent ?
 
 *Cette partie sert à montrer les différents types d'hébergement pour le site vitrine et le quel serait le plus pertinent pour notre utilisation*
 
