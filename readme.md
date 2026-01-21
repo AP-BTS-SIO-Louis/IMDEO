@@ -32,5 +32,5 @@ Le projet suit la méthodologie suivante :
 
 ## 👥 Auteurs et Maintenance
 
-* **Participation :** Louis Biseray, Louis MEDO
+* **Participation :** Louis Biseray, Louis MEDO, Ewen GADONNAUD
 * **Mainteneur du dépôt :** [À définir / Louis Biseray ou Louis MEDO]
