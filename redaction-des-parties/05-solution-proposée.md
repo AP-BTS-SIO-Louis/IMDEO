@@ -10,15 +10,15 @@
 
 ### Les Fonctionnalités
 * **Ressources :** Garanties mais non flexibles à chaud (redémarrage requis pour upgrader).
-* **Administration :** Totale (Root). Vous gérez tout de A à Z.
-* **Réseau :** IP publique incluse. Bande passante 1 Gbps (Best effort).
+* **Administration :** Totale (Root). Gestion de A à Z.
+* **Réseau :** IP publique incluse. Bande passante 1 Gbps.
 * **Limites :** Pas de réseau privé (vRack) inclus par défaut sur cette gamme, isolation moins forte qu'en Cloud.
 
 ### Le Coût Mensuel (HT)
 | Poste de dépense | Détail technique | Prix (HT/mois) |
 | :--- | :--- | :--- |
 | **Serveur VPS** | **4 vCores**, **8 Go RAM**, 160 Go NVMe | 23,50 € |
-| **Backup Auto** | Option indispensable (Snapshot J-1) | ~3,00 € |
+| **Backup Auto** | Option (Snapshot J-1) | ~3,00 € |
 | **Trafic Sortant** | Illimité / Inclus | 0,00 € |
 | **TOTAL** | **Coût fixe** | **~26,50 € / mois** |
 
@@ -55,7 +55,6 @@ Il y a un piège classique ici : **à prix égal, le VPS est deux fois plus puis
 *(Pour avoir 4 vCores en Public Cloud, il faudrait passer à l'instance B2-15 à ~68€/mois).*
 
 ### Argumentaire de décision
-Monsieur le DSI,
 
 Bien que le VPS offre plus de puissance brute pour moins cher, je recommande tout de même **l'Option B : Public Cloud (Instance B2-7)** pour notre site vitrine iMDEO.
 
