@@ -9,9 +9,10 @@
 ***
 ## Informations
 
-- **Auteurs :** Louis Biseray, Louis MEDO
+- **Auteurs :** Louis Biseray, Louis MEDO, Ewen GADONNAUD
 - **Date de création :** 16/01/2026
 - **Validation technique :** non validé
+- **Dépôt GitHub :** [IMDEO Externalisation site vitrine](https://github.com/AP-BTS-SIO-Louis/imdeo-externalisation-site-vitrine)
 
 ---
 ## Sommaire
@@ -63,15 +64,6 @@ L'externalisation possède des avantages et des inconvénients pour les entrepri
 **Exemple 1 :**
 
 De nombreuses entreprises se retrouvent dépendantes d'AWS pour la gestion de leurs données en utilisant le service DynamoDB. C'est une base de données non relationnelle capable de contenir des milliards d'éléments avec une grande vitesse de lecture et d'écriture. Cependant, sur le marché actuel, aucune solution concurrente identique n'est disponible et la migration de DynamoDB vers un autre prestataire est très complexe.
-
-#### Lexique
-
-[^1]: **CDN** = **C**ontent **D**elivery **N**etwork : Réseau de serveurs distribués géographiquement pour diffuser du contenu rapidement.
-[^3]: **Clause réversibilité** : disposition contractuelle qui organise la restitution ou le transfert des données, logiciels ou infrastructures critiques en cas de fin de contrat, de faillite du prestataire ou de tout autre événement mettant fin à la collaboration.
-[^6]: **Vendor Lock-in** : dépendance d'un client à un produit ou à une technologie.
-[^7]: **OPEX** : charge d'exploitation (Ex : cartouche d'encre pour l'imprimante).
-[^8]: **CAPEX** : dépenses d'investissement (Ex. imprimante, serveurs).
-[^9]: **Scalabilité** : capacité d'un système à gérer un accroissement de la demande sans perdre en efficacité ou en performance.
 
 ***
 ### 3. Cadre juridique et contractuel
@@ -181,8 +173,8 @@ __Types d'hébergement :__
 **L'offre : OVH Public Cloud (Instance B2-7 ou équivalent)**
 
 ### Les Fonctionnalités
-* **Orchestration :** Pilotable via API / Terraform (Infrastructure as Code).
-* **Haute Dispo :** Stockage Ceph triplé (données répliquées 3 fois).
+* **Orchestration :** Pilotable via API / Terraform[^10] (Infrastructure as Code).
+* **Haute Dispo :** Stockage Ceph[^11] triplé (données répliquées 3 fois).
 * **Réseau Pro :** Compatible **vRack** (Réseau privé isolé entre serveurs) et **Floating IP** (bascule d'IP immédiate en cas de panne).
 * **Flexibilité :** Resize à chaud (selon OS) et facturation à l'heure possible.
 
@@ -217,3 +209,16 @@ Bien que le VPS offre plus de puissance brute pour moins cher, je recommande tou
 3.  **Continuité de service :** En cas de crash critique du serveur, grâce à la **Floating IP** du Public Cloud, nous pouvons remonter une sauvegarde sur une nouvelle instance et y pointer l'IP en quelques secondes via script. Sur un VPS, nous sommes dépendants du temps de réparation physique de l'hôte par OVH.
 
 **Verdict :** Nous choisissons la **flexibilité et la sécurité du Public Cloud (30€/mois)** plutôt que la puissance brute du VPS, car un site vitrine a besoin de haute disponibilité plus que de puissance de calcul.
+
+---
+
+#### Lexique
+
+[^1]: **CDN** = **C**ontent **D**elivery **N**etwork : Réseau de serveurs distribués géographiquement pour diffuser du contenu rapidement.
+[^3]: **Clause réversibilité** : disposition contractuelle qui organise la restitution ou le transfert des données, logiciels ou infrastructures critiques en cas de fin de contrat, de faillite du prestataire ou de tout autre événement mettant fin à la collaboration.
+[^6]: **Vendor Lock-in** : dépendance d'un client à un produit ou à une technologie.
+[^7]: **OPEX** : charge d'exploitation (Ex : cartouche d'encre pour l'imprimante).
+[^8]: **CAPEX** : dépenses d'investissement (Ex. imprimante, serveurs).
+[^9]: **Scalabilité** : capacité d'un système à gérer un accroissement de la demande sans perdre en efficacité ou en performance.
+[^10]: **Terraform** :Outil d'Infrastructure as Code (IaC) permettant d'automatiser la création et la gestion d'infrastructures cloud via des fichiers de configuration déclaratifs.
+[^11]: **Ceph** : Solution de stockage distribué unifiée et évolutive, gérant simultanément le stockage en mode objet, bloc et fichier sur une même plateforme.
