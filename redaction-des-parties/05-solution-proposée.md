@@ -1,41 +1,67 @@
-### 1. Le choix n°1 : L'Hébergement Mutualisé
+# Comparatif Technique & Financier : VPS vs Public Cloud (Écosystème OVHcloud)
 
-C'est la solution la plus pertinente pour **90 % des sites vitrines**.
+**Objectif :** Choisir l'infrastructure la plus pertinente pour le site institutionnel d'iMDEO.
+**Contrainte DSI :** Haute disponibilité, crédibilité technique (ESN), souveraineté des données.
 
-- **Pourquoi ?** Un site vitrine a généralement un trafic modéré et prévisible. Le mutualisé offre le meilleur rapport qualité/prix (souvent entre 2€ et 7€/mois) et inclut tout le nécessaire (e-mails, SSL, nom de domaine).
+---
 
-- **Pertinence :** Maximale si vous voulez une solution "clés en main" sans gérer la technique.
+## 1. Option A : Le Serveur Privé Virtuel (VPS)
+**L'offre : OVH VPS Comfort**
 
+### Les Fonctionnalités
+* **Ressources :** Garanties mais non flexibles à chaud (redémarrage requis pour upgrader).
+* **Administration :** Totale (Root). Vous gérez tout de A à Z.
+* **Réseau :** IP publique incluse. Bande passante 1 Gbps (Best effort).
+* **Limites :** Pas de réseau privé (vRack) inclus par défaut sur cette gamme, isolation moins forte qu'en Cloud.
 
-### 2. Le choix "Image" : L'Hébergement Éco-Responsable
+### Le Coût Mensuel (HT)
+| Poste de dépense | Détail technique | Prix (HT/mois) |
+| :--- | :--- | :--- |
+| **Serveur VPS** | **4 vCores**, **8 Go RAM**, 160 Go NVMe | 23,50 € |
+| **Backup Auto** | Option indispensable (Snapshot J-1) | ~3,00 € |
+| **Trafic Sortant** | Illimité / Inclus | 0,00 € |
+| **TOTAL** | **Coût fixe** | **~26,50 € / mois** |
 
-- **Pourquoi ?** Pour un site vitrine, l'aspect "vitesse pure" est moins critique que pour un site e-commerce. Utiliser ce levier pour renforcer votre image de marque (RSE) est un excellent calcul stratégique.
+---
 
-- **Pertinence :** Très haute si votre entreprise communique sur des valeurs éthiques.
+## 2. Option B : Le Public Cloud (Instance)
+**L'offre : OVH Public Cloud (Instance B2-7 ou équivalent)**
 
+### Les Fonctionnalités
+* **Orchestration :** Pilotable via API / Terraform (Infrastructure as Code).
+* **Haute Dispo :** Stockage Ceph triplé (données répliquées 3 fois).
+* **Réseau Pro :** Compatible **vRack** (Réseau privé isolé entre serveurs) et **Floating IP** (bascule d'IP immédiate en cas de panne).
+* **Flexibilité :** Resize à chaud (selon OS) et facturation à l'heure possible.
 
-### 3. Le choix "Performance" : L'Hébergement Cloud
+### Le Coût Mensuel (HT)
+*Note : Pour un tarif proche du VPS Comfort, nous sélectionnons l'instance "General Purpose" B2-7.*
 
-- **Pourquoi ?** Bien que robuste, il est souvent "surdimensionné" pour un simple site vitrine. Cependant, il devient pertinent si votre site contient des éléments lourds (vidéos haute définition, configurateurs 3D) ou si vous lancez des campagnes publicitaires massives qui génèrent des pics de trafic soudains.
+| Poste de dépense | Détail technique | Prix (HT/mois) |
+| :--- | :--- | :--- |
+| **Instance (B2-7)** | **2 vCores**, **7 Go RAM**, 50 Go SSD (Moins puissant que le VPS) | ~24,20 € |
+| **Disque add.** | Ajout 100 Go Block Storage (pour égaler les 160Go du VPS) | 4,00 € |
+| **Snapshot** | Sauvegarde de l'instance (estimatif 50Go) | ~2,50 € |
+| **Trafic Sortant** | Illimité / Inclus (Avantage OVH vs AWS) | 0,00 € |
+| **TOTAL** | **Coût modulable** | **~30,70 € / mois** |
 
-- **Pertinence :** Moyenne (souvent trop cher et complexe pour un petit site), sauf besoin de haute disponibilité.
+---
 
+## 3. Analyse des Écarts & Décision pour le DSI
 
-### 4. Le choix "Spécialisé" : Joomla (Manager)
+### Le constat technique
+Il y a un piège classique ici : **à prix égal, le VPS est deux fois plus puissant en CPU que le Public Cloud.**
+* **VPS Comfort (26,50€) :** 4 vCores, 160 Go Disque.
+* **Public Cloud B2-7 (30,70€) :** 2 vCores, 50 Go Disque de base.
+*(Pour avoir 4 vCores en Public Cloud, il faudrait passer à l'instance B2-15 à ~68€/mois).*
 
-- **Pourquoi ?** Uniquement si vous avez décidé de construire votre site avec Joomla. C'est une solution de niche.
+### Argumentaire de décision
+Monsieur le DSI,
 
-- **Pertinence :** Faible, sauf si vous tenez absolument à ce CMS spécifique.
+Bien que le VPS offre plus de puissance brute pour moins cher, je recommande tout de même **l'Option B : Public Cloud (Instance B2-7)** pour notre site vitrine iMDEO.
 
+**Pourquoi sacrifier de la puissance pour payer plus cher ?**
+1.  **Architecture "ESN" (Dogfooding) :** Nos consultants vendent de l'infrastructure moderne. Notre site doit utiliser les technologies que nous préconisons (OpenStack, vRack, Floating IP). Un simple VPS fait "amateur" pour notre image.
+2.  **Sécurité & Isolation :** Le Public Cloud nous permet d'utiliser le **vRack** (réseau privé) pour isoler nos futures bases de données, ce que le VPS Comfort ne permet pas nativement.
+3.  **Continuité de service :** En cas de crash critique du serveur, grâce à la **Floating IP** du Public Cloud, nous pouvons remonter une sauvegarde sur une nouvelle instance et y pointer l'IP en quelques secondes via script. Sur un VPS, nous sommes dépendants du temps de réparation physique de l'hôte par OVH.
 
-### 5. Le choix à éviter : Serveur Privé Virtuel (VPS)
-
-- **Pourquoi ?** Un site vitrine doit être simple à maintenir. Un VPS vous oblige à gérer les mises à jour de sécurité du serveur vous-même. Le risque de panne par mauvaise configuration est plus élevé que le bénéfice apporté.
-
-- **Pertinence :** Très faible pour un débutant ou un petit projet.
-
-| **Critère**    | **Mutualisé (Le gagnant)**  | **Cloud (L'alternative)**           |
-| -------------- | --------------------------- | ----------------------------------- |
-| **Coût**       | Très faible et fixe         | Variable (selon l'usage)            |
-| **Gestion**    | 100% géré par l'hébergeur   | Souvent technique (Config manuelle) |
-| **Idéal pour** | PME, Artisans, Indépendants | Startups, Apps, Sites à fort trafic |
+**Verdict :** Nous choisissons la **flexibilité et la sécurité du Public Cloud (30€/mois)** plutôt que la puissance brute du VPS, car un site vitrine a besoin de haute disponibilité plus que de puissance de calcul.
